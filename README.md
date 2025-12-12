@@ -8,7 +8,7 @@ Before you begin, ensure you have the following installed:
 
 *   **Neovim** (v0.9.0 or later)
 *   **Git**
-*   **A Nerd Font** (e.g., [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)) - required for icons.
+*   **A Nerd Font** (e.g., [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) or [Cascadia Code Nerd Font](https://www.nerdfonts.com/font-downloads)) - required for icons.
 *   **Lazygit** (optional, for git integration)
 *   **Ripgrep** (required for Telescope grep)
 *   **GCC** or **Clang** (required for compiling Tree-sitter parsers)
