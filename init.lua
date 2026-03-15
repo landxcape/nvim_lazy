@@ -1,9 +1,11 @@
 if vim.g.vscode then
-  print("Running inside VSCode, skipping LazyVim bootstrap.") -- for debugging
   return
 end
 
 -- bootstrap lazy.nvim, LazyVim and plugins
 require("config.lazy")
-require("config.dart_format")
-vim.g.python3_host_prog = vim.fn.expand("~/.local/bin/python3")
+
+local python3_host = vim.fn.exepath("python3")
+if python3_host ~= "" then
+  vim.g.python3_host_prog = python3_host
+end

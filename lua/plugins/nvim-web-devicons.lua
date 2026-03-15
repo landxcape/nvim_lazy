@@ -1,14 +1,16 @@
 return {
   "nvim-tree/nvim-web-devicons",
-  config = function()
-    require("nvim-web-devicons").setup({
-      override = {
-        dart = {
-          icon = "",
-          color = "#03589C",
-          name = "Dart",
-        },
+  event = "VeryLazy",
+  opts = {
+    override = {
+      dart = {
+        icon = "",
+        color = "#03589C",
+        name = "Dart",
       },
-    })
+    },
+  },
+  config = function(_, opts)
+    require("nvim-web-devicons").setup(opts)
   end,
 }

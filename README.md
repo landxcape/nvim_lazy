@@ -6,12 +6,14 @@ This is my personal [LazyVim](https://github.com/LazyVim/LazyVim) configuration.
 
 Before you begin, ensure you have the following installed:
 
-*   **Neovim** (v0.9.0 or later)
+*   **Neovim** (v0.10.0 or later)
 *   **Git**
 *   **A Nerd Font** (e.g., [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads), [Cascadia Code Nerd Font](https://www.nerdfonts.com/font-downloads)) - required for icons.
 *   **Lazygit** (optional, for git integration)
 *   **Ripgrep** (required for Telescope grep)
 *   **GCC** or **Clang** (required for compiling Tree-sitter parsers)
+*   **Dart/Flutter SDK** (optional, for Flutter development)
+*   **Rust toolchain + rust-analyzer** (optional, for Rust development)
 
 ## 🚀 Installation
 
