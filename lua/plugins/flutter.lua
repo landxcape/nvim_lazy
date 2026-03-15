@@ -31,15 +31,25 @@ return {
   },
   {
     "akinsho/flutter-tools.nvim",
-    lazy = false,
+    ft = { "dart" },
+    cmd = {
+      "FlutterRun",
+      "FlutterReload",
+      "FlutterRestart",
+      "FlutterQuit",
+      "FlutterDevices",
+      "FlutterEmulators",
+      "FlutterOutlineToggle",
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim",
       "mfussenegger/nvim-dap",
     },
     config = function()
+      local flutter_bin = vim.fn.exepath("flutter")
       require("flutter-tools").setup({
-        flutter_path = "/Users/shakyapurna/development/flutter/bin/flutter",
+        flutter_path = flutter_bin ~= "" and flutter_bin or nil,
         debugger = {
           enabled = true,
           run_via_dap = true,
@@ -118,6 +128,7 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
     dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()

@@ -2,7 +2,7 @@ return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
-      dart = { "dartls" },
+      dart = { "dart_format" },
     },
   },
 }
