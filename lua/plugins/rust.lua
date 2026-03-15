@@ -51,4 +51,30 @@ return {
       },
     },
   },
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml", "BufNewFile Cargo.toml" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      popup = {
+        autofocus = true,
+      },
+      on_attach = function(bufnr)
+        local crates = require("crates")
+        local function map(lhs, rhs, desc)
+          vim.keymap.set("n", lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
+        end
+
+        map("<leader>rcp", crates.show_popup, "Crates Popup")
+        map("<leader>rcv", crates.show_versions_popup, "Crates Versions")
+        map("<leader>rcu", crates.update_crate, "Crates Update")
+        map("<leader>rcU", crates.update_all_crates, "Crates Update All")
+        map("<leader>rco", crates.open_crates_io, "Crates.io")
+        map("<leader>rcd", crates.open_documentation, "Crate Docs")
+      end,
+    },
+    config = function(_, opts)
+      require("crates").setup(opts)
+    end,
+  },
 }
