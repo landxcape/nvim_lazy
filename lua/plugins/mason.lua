@@ -4,8 +4,15 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
 
-      if not vim.tbl_contains(opts.ensure_installed, "stylua") then
-        table.insert(opts.ensure_installed, "stylua")
+      local tools = {
+        "stylua",
+        "codelldb",
+      }
+
+      for _, tool in ipairs(tools) do
+        if not vim.tbl_contains(opts.ensure_installed, tool) then
+          table.insert(opts.ensure_installed, tool)
+        end
       end
     end,
   },
