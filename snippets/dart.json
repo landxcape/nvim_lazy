@@ -1,0 +1,132 @@
+{
+  "Flutter Stateless Widget": {
+    "prefix": "stless",
+    "body": [
+      "class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} extends StatelessWidget {",
+      "  const ${1}({super.key});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return ${2:const SizedBox()};",
+      "  }",
+      "}"
+    ],
+    "description": "Create a Flutter StatelessWidget"
+  },
+  "Flutter Stateful Widget": {
+    "prefix": "stful",
+    "body": [
+      "class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} extends StatefulWidget {",
+      "  const ${1}({super.key});",
+      "",
+      "  @override",
+      "  State<${1}> createState() => _${1}State();",
+      "}",
+      "",
+      "class _${1}State extends State<${1}> {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return ${2:const SizedBox()};",
+      "  }",
+      "}"
+    ],
+    "description": "Create a Flutter StatefulWidget"
+  },
+  "Build Method": {
+    "prefix": "buildw",
+    "body": [
+      "@override",
+      "Widget build(BuildContext context) {",
+      "  return ${1:const SizedBox()};",
+      "}"
+    ],
+    "description": "Create a widget build method"
+  },
+  "Scaffold": {
+    "prefix": "scaf",
+    "body": [
+      "Scaffold(",
+      "  appBar: AppBar(",
+      "    title: Text(${1:'${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}'}),",
+      "  ),",
+      "  body: ${2:const SizedBox()},",
+      ")"
+    ],
+    "description": "Insert a Scaffold"
+  },
+  "Material App": {
+    "prefix": "mateapp",
+    "body": [
+      "MaterialApp(",
+      "  debugShowCheckedModeBanner: false,",
+      "  title: '${1:App}',",
+      "  theme: ThemeData(",
+      "    colorScheme: ColorScheme.fromSeed(seedColor: ${2:Colors.blue}),",
+      "  ),",
+      "  home: ${3:const HomePage()},",
+      ")"
+    ],
+    "description": "Insert a MaterialApp"
+  },
+  "Padding All": {
+    "prefix": "pad",
+    "body": [
+      "Padding(",
+      "  padding: const EdgeInsets.all(${1:16}),",
+      "  child: ${2:child},",
+      ")"
+    ],
+    "description": "Wrap with EdgeInsets.all padding"
+  },
+  "Padding Symmetric": {
+    "prefix": "pads",
+    "body": [
+      "Padding(",
+      "  padding: const EdgeInsets.symmetric(",
+      "    horizontal: ${1:16},",
+      "    vertical: ${2:12},",
+      "  ),",
+      "  child: ${3:child},",
+      ")"
+    ],
+    "description": "Wrap with symmetric padding"
+  },
+  "SizedBox": {
+    "prefix": "sbox",
+    "body": [
+      "SizedBox(",
+      "  width: ${1:double.infinity},",
+      "  height: ${2:48},",
+      "  child: ${3:child},",
+      ")"
+    ],
+    "description": "Insert a SizedBox"
+  },
+  "Expanded": {
+    "prefix": "expd",
+    "body": [
+      "Expanded(",
+      "  child: ${1:child},",
+      ")"
+    ],
+    "description": "Wrap with Expanded"
+  },
+  "SafeArea": {
+    "prefix": "safea",
+    "body": [
+      "SafeArea(",
+      "  child: ${1:child},",
+      ")"
+    ],
+    "description": "Wrap with SafeArea"
+  },
+  "setState": {
+    "prefix": "setst",
+    "body": [
+      "setState(() {",
+      "  ${1:// update state}",
+      "});"
+    ],
+    "description": "Call setState"
+  }
+}
