@@ -1,92 +1,52 @@
-# 💤 LazyVim Configuration
+# 💤 LazyVim - Ayu Edition
 
-This is my personal [LazyVim](https://github.com/LazyVim/LazyVim) configuration. It provides a robust, fast, and feature-rich Neovim setup.
+My personal [LazyVim](https://github.com/LazyVim/LazyVim) configuration, optimized for professional **Flutter**, **Rust**, and **Lua** development. This setup is strictly color-synced with my **Ayu Dark** Tmux environment.
 
-## 📋 Prerequisites
+## ✨ Core Features
 
-Before you begin, ensure you have the following installed:
+- **🎨 Aesthetic:** Powered by `neovim-ayu` (Dark) with Ghostty transparency and subtle UI overrides for maximum focus.
+- **🐦 Flutter/Dart Pro:**
+  - `flutter-tools.nvim` with custom DAP logic to prioritize `.vscode/launch.json`.
+  - Custom VSCode-style snippets for widgets and scaffolds.
+  - Triple-column layout (`80,120,150`) specifically for Dart formatting.
+  - Inlay hints enabled for icon and color previews.
+- **🦀 Rust Integration:** Managed via `rustaceanvim` and `crates.nvim` for real-time dependency status.
+- **💾 Smart Auto-Save:** Powered by `auto-save.nvim` with custom logic to prevent saving ephemeral, plugin, or environment buffers.
+- **🪟 Tmux Synergy:** Zero-latency navigation between splits and Tmux panes via `vim-tmux-navigator`.
+- **🚀 Modern Stack:** `blink.cmp` for completions, `snacks.nvim` for UI components, and `noice.nvim` for messages.
 
-*   **Neovim** (v0.10.0 or later)
-*   **Git**
-*   **A Nerd Font** (e.g., [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads), [Cascadia Code Nerd Font](https://www.nerdfonts.com/font-downloads)) - required for icons.
-*   **Lazygit** (optional, for git integration)
-*   **Ripgrep** (required for Telescope grep)
-*   **GCC** or **Clang** (required for compiling Tree-sitter parsers)
-*   **Dart/Flutter SDK** (optional, for Flutter development)
-*   **Rust toolchain + rust-analyzer** (optional, for Rust development)
+## 📦 Installation
 
-## 🚀 Installation
+```bash
+# Backup existing config
+mv ~/.config/nvim{,.bak}
 
-1.  **Backup your existing configuration:**
+# Clone this repository
+git clone https://github.com/landxcape/nvim_lazy.git ~/.config/nvim
 
-    ```bash
-    # required
-    mv ~/.config/nvim{,.bak}
-    
-    # optional but recommended
-    mv ~/.local/share/nvim{,.bak}
-    mv ~/.local/state/nvim{,.bak}
-    mv ~/.cache/nvim{,.bak}
-    ```
-
-2.  **Clone this repository:**
-
-    ```bash
-    git clone https://github.com/landxcape/nvim_lazy.git ~/.config/nvim
-    ```
-
-3.  **Start Neovim:**
-
-    ```bash
-    nvim
-    ```
-    LazyVim will automatically install all plugins and dependencies on the first launch.
-
-## 📂 Structure
-
-*   `lua/config/`
-    *   `autocmds.lua`: Auto commands
-    *   `keymaps.lua`: Custom key mappings
-    *   `options.lua`: Neovim options/settings
-    *   `lazy.lua`: Lazy.nvim bootstrapping and configuration
-*   `lua/plugins/`: Directory for plugin configurations. Each file returns a table (or a list of tables) defining plugins.
-
-## ⚙️ Configuration
-
-### Adding Plugins
-
-Create a new file in `lua/plugins/` (e.g., `lua/plugins/my-plugin.lua`).
-
-```lua
-return {
-  "plugin-owner/plugin-name",
-  config = function()
-    -- plugin configuration
-  end,
-}
+# Start Neovim
+nvim
 ```
 
-### Keymaps
+## ⌨️ Custom Keybindings
 
-You can add your custom keymaps in `lua/config/keymaps.lua`.
+| Key | Action |
+| :--- | :--- |
+| `<leader>w` | Save File |
+| `<leader>fr` | **Flutter:** Run App |
+| `<leader>fR` | **Flutter:** Hot Reload |
+| `<leader>fS` | **Flutter:** Hot Restart |
+| `<leader>rcp` | **Rust:** Crates Popup |
+| `Ctrl + h/j/k/l` | **Tmux:** Seamless Split Navigation |
+| `Shift + h/l` | **Buffers:** Switch Previous/Next |
+| `Alt + Left/Right` | **Panes:** Direct Tmux Navigation |
 
-```lua
--- Example: Map <leader>w to save file
-vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
-```
+## 📂 Modular Structure
 
-### Options
+- `lua/config/`: Core settings and advanced `autocmds` (like Dart-specific columns).
+- `lua/plugins/`: Modular plugin specs (one file per feature/language).
+- `snippets/`: Custom Dart snippets for standard Flutter widgets.
+- `after/ftplugin/`: Language-specific logic (e.g., Rust hover actions).
 
-Change default Neovim options in `lua/config/options.lua`.
-
-```lua
-vim.opt.relativenumber = true -- Enable relative line numbers
-```
-
-## 🤝 Contributing
-
-Feel free to fork this repository and customize it to your liking!
-
-## 📄 License
-
-[MIT](LICENSE)
+---
+*Optimized for [Ghostty](https://ghostty.org/) and [Ayu Tmux](https://github.com/landxcape/tmux-config).*
