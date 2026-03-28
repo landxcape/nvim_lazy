@@ -1,6 +1,6 @@
 # 💤 LazyVim - Ayu Edition
 
-My personal [LazyVim](https://github.com/LazyVim/LazyVim) configuration, optimized for professional **Flutter**, **Rust**, and **Lua** development. This setup is strictly color-synced with my **Ayu Dark** Tmux environment.
+My personal [LazyVim](https://github.com/LazyVim/LazyVim) configuration, optimized for professional **Flutter**, **Rust**, **Go**, and **Lua** development. This setup is strictly color-synced with my **Ayu Dark** Tmux environment.
 
 ## ✨ Core Features
 
@@ -10,6 +10,11 @@ My personal [LazyVim](https://github.com/LazyVim/LazyVim) configuration, optimiz
   - Custom VSCode-style snippets for widgets and scaffolds.
   - Triple-column layout (`80,120,150`) specifically for Dart formatting.
   - Inlay hints enabled for icon and color previews.
+- **🐹 Golang Suite:**
+  - `gopls` configured with inlay hints, code lenses (test, generate, tidy), and semantic tokens.
+  - `go.nvim` for advanced tool integration and boilerplate generation.
+  - `nvim-dap-go` for seamless debugging with Delve.
+  - Automated formatting via `goimports` and `gofumpt`.
 - **🦀 Rust Integration:** Managed via `rustaceanvim` and `crates.nvim` for real-time dependency status.
 - **💾 Smart Auto-Save:** Powered by `auto-save.nvim` with custom logic to prevent saving ephemeral, plugin, or environment buffers.
 - **🪟 Tmux Synergy:** Zero-latency navigation between splits and Tmux panes via `vim-tmux-navigator`.
@@ -36,6 +41,10 @@ nvim
 | `<leader>fr` | **Flutter:** Run App |
 | `<leader>fR` | **Flutter:** Hot Reload |
 | `<leader>fS` | **Flutter:** Hot Restart |
+| `<leader>gr` | **Go:** Run |
+| `<leader>gt` | **Go:** Test |
+| `<leader>ga` | **Go:** Add Tag |
+| `<leader>ge` | **Go:** If Error |
 | `<leader>rcp` | **Rust:** Crates Popup |
 | `Ctrl + h/j/k/l` | **Tmux:** Seamless Split Navigation |
 | `Shift + h/l` | **Buffers:** Switch Previous/Next |

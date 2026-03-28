@@ -7,6 +7,10 @@ return {
       local tools = {
         "stylua",
         "codelldb",
+        "gopls",
+        "goimports",
+        "gofumpt",
+        "delve",
       }
 
       for _, tool in ipairs(tools) do
