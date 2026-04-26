@@ -5,5 +5,10 @@ return {
       dart = { "dart_format" },
       go = { "goimports", "gofumpt" },
     },
+    formatters = {
+      dart_format = {
+        prepend_args = { "--line-length", "150" },
+      },
+    },
   },
 }
