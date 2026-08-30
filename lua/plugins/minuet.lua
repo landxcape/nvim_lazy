@@ -50,6 +50,14 @@ return {
         "<cmd>Minuet virtualtext toggle<cr>",
         desc = "Toggle Gemini Autocomplete",
       },
+      {
+        "<C-g>",
+        function()
+          require("minuet.virtualtext").action.next()
+        end,
+        mode = "i",
+        desc = "Manual Gemini Trigger",
+      },
     },
   },
 }
