@@ -7,7 +7,7 @@ return {
       provider = "gemini",
       provider_options = {
         gemini = {
-          model = "gemini-2.5-flash",
+          model = "gemini-3.1-flash-lite",
           api_key = "GEMINI_API_KEY",
           stream = true,
           optional = {
@@ -40,15 +40,15 @@ return {
           dismiss = "<A-e>", -- Dismiss suggestion
         },
       },
-      throttle = 400,
-      debounce = 400,
+      throttle = 1500,
+      debounce = 600,
       request_timeout = 3,
     },
     keys = {
       {
-        "<leader>ua",
-        "<cmd>Minuet virtualtext<cr>",
-        desc = "Toggle AI Autocomplete (Gemini)",
+        "<leader>cg",
+        "<cmd>Minuet virtualtext toggle<cr>",
+        desc = "Toggle Gemini Autocomplete",
       },
     },
   },
