@@ -60,12 +60,6 @@ return {
           end,
         },
         lsp = {
-          color = {
-            enabled = true,
-            background = false,
-            foreground = false,
-            virtual_text = true,
-          },
           init_options = {
             closingLabels = true,
             flutterOutline = true,
