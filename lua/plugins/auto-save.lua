@@ -6,7 +6,7 @@ return {
   "okuuva/auto-save.nvim",
   version = "*",
   cmd = { "ASToggle" },
-  event = { "InsertLeave", "TextChanged" },
+  event = { "InsertLeave" },
 
   opts = function()
     local function is_real_file_buffer(buf)
@@ -91,7 +91,7 @@ return {
 
       trigger_events = {
         immediate_save = { "BufLeave", "FocusLost" },
-        defer_save = { "InsertLeave", "TextChanged" },
+        defer_save = { "InsertLeave" },
         cancel_deferred_save = { "InsertEnter" },
       },
 

@@ -6,30 +6,6 @@ return {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        dartls = {
-          cmd = { "dart", "language-server", "--protocol=lsp" },
-          filetypes = { "dart" },
-          init_options = {
-            closingLabels = true,
-            flutterOutline = true,
-            onlyAnalyzeProjectsWithOpenFiles = true,
-            outline = true,
-            suggestFromUnimportedLibraries = true,
-          },
-          settings = {
-            dart = {
-              completeFunctionCalls = true,
-              showTodos = true,
-            },
-          },
-        },
-      },
-    },
-  },
-  {
     "akinsho/flutter-tools.nvim",
     ft = { "dart" },
     cmd = {
@@ -83,19 +59,19 @@ return {
             }
           end,
         },
-        -- lsp = {
-        --   color = {
-        --     enabled = true,
-        --     background = true,
-        --     virtual_text = false,
-        --   },
-        -- },
         lsp = {
           color = {
             enabled = true,
             background = false,
             foreground = false,
             virtual_text = true,
+          },
+          init_options = {
+            closingLabels = true,
+            flutterOutline = true,
+            onlyAnalyzeProjectsWithOpenFiles = true,
+            outline = true,
+            suggestFromUnimportedLibraries = true,
           },
           settings = {
             showTodos = true,
@@ -127,14 +103,14 @@ return {
     },
   },
   {
-    "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load({
-        paths = { vim.fn.stdpath("config") .. "/snippets" },
-      })
-    end,
+    "f-person/pubspec-assist-nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = { "BufRead pubspec.yaml", "BufNewFile pubspec.yaml" },
+    cmd = { "PubspecAssistAddDependency", "PubspecAssistAddDevDependency" },
+    keys = {
+      { "<leader>fa", "<cmd>PubspecAssistAddDependency<cr>", desc = "Pubspec Add Dependency" },
+      { "<leader>fd", "<cmd>PubspecAssistAddDevDependency<cr>", desc = "Pubspec Add Dev Dependency" },
+    },
+    opts = {},
   },
 }
