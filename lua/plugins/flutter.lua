@@ -94,17 +94,47 @@ return {
       { "<leader>fe", "<cmd>FlutterEmulators<cr>", desc = "Flutter Emulators" },
       { "<leader>fo", "<cmd>FlutterOutlineToggle<cr>", desc = "Flutter Outline" },
       { "<leader>fS", "<cmd>FlutterRestart<cr>", desc = "Flutter Restart" },
+      {
+        "<leader>fK",
+        function()
+          vim.fn.jobstart({ "gradle", "--stop" }, {
+            on_exit = function()
+              vim.notify("Gradle daemons stopped and memory released.", vim.log.levels.INFO, { title = "Flutter" })
+            end,
+          })
+        end,
+        desc = "Kill Gradle Daemons",
+      },
     },
   },
   {
     "f-person/pubspec-assist-nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    event = { "BufRead pubspec.yaml", "BufNewFile pubspec.yaml" },
+    ft = { "yaml" },
     cmd = { "PubspecAssistAddDependency", "PubspecAssistAddDevDependency" },
     keys = {
-      { "<leader>fa", "<cmd>PubspecAssistAddDependency<cr>", desc = "Pubspec Add Dependency" },
-      { "<leader>fd", "<cmd>PubspecAssistAddDevDependency<cr>", desc = "Pubspec Add Dev Dependency" },
+      {
+        "<leader>fa",
+        function()
+          vim.ui.input({ prompt = "Add Pub Dependency: " }, function(pkg)
+            if pkg and pkg ~= "" then
+              require("pubspec-assist-nvim").pubspec_add_dependency(pkg)
+            end
+          end)
+        end,
+        desc = "Pubspec Add Dependency",
+      },
+      {
+        "<leader>fd",
+        function()
+          vim.ui.input({ prompt = "Add Pub Dev Dependency: " }, function(pkg)
+            if pkg and pkg ~= "" then
+              require("pubspec-assist-nvim").pubspec_add_dev_dependency(pkg)
+            end
+          end)
+        end,
+        desc = "Pubspec Add Dev Dependency",
+      },
     },
-    opts = {},
   },
 }
