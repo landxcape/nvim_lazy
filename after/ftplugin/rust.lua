@@ -1,6 +1,13 @@
 local bufnr = vim.api.nvim_get_current_buf()
 local map = vim.keymap.set
 
+-- Standard Rust indentation (4 spaces)
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.softtabstop = 4
+vim.opt_local.expandtab = true
+vim.opt_local.smartindent = false
+
 map("n", "K", function()
   vim.cmd.RustLsp({ "hover", "actions" })
 end, { buffer = bufnr, silent = true, desc = "Rust Hover Actions" })

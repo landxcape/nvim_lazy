@@ -6,3 +6,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
+
+-- Modern indentation: rely on autoindent, disable obsolete 1990s C-heuristics
+vim.opt.smartindent = false
+vim.opt.autoindent = true
